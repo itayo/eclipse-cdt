@@ -1,5 +1,5 @@
 #!/bin/bash
-dir=$PWD/workspace
+dir=~/workspace
 
 
 if [[ ! -e $dir ]]; then
@@ -12,5 +12,6 @@ docker run -ti --rm \
 	--cap-add=SYS_PTRACE \
 	-e DISPLAY=$DISPLAY \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v /home/$USER:/home/developer/home \
 	-v $dir:/home/developer/workspace -e USER=$USER  -e USERID=$UID \
-	ivankostov/eclipse-cdt
+	snyg/eclipse-cdt
