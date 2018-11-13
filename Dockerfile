@@ -17,7 +17,7 @@ ADD openssl-1.0.0t.tar.gz /tmp
 
 WORKDIR /tmp/
 RUN echo "/usr/local/openssl/lib" >  /etc/ld.so.conf.d/openssl.conf
-RUN cd openssl-1.0.0t && ./config && make && make install  && ldreconfig && cd .. && cd cmake-3.12.4 && ./bootstrap && make && make install && cd .. && rm -rf cmake-3.12.4 && rm -rf openssl-1.0.0t
+RUN cd openssl-1.0.0t && ./config && make && make install  && ldconfig && cd .. && cd cmake-3.12.4 && ./bootstrap && make && make install && cd .. && rm -rf cmake-3.12.4 && rm -rf openssl-1.0.0t
 WORKDIR /home/developer
 USER developer
 ENV HOME /home/developer
